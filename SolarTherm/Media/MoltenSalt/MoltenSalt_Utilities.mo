@@ -52,7 +52,6 @@ package MoltenSalt_Utilities
     Modelica.SIunits.Temp_C T=Modelica.SIunits.Conversions.to_degC(K)
       "Temperature in degCelsius";
   algorithm
-    //h:=(1443-0.172*273.15)*T+(0.172/2)*T^2;
     lamda:=0.443+1.9e-4*T;
   end lamda_T;
 
@@ -64,7 +63,7 @@ package MoltenSalt_Utilities
     Modelica.SIunits.Temp_C T=Modelica.SIunits.Conversions.to_degC(K)
       "Temperature in degCelsius";
   algorithm
-    eta:=1000*(22.714-0.120*T+2.281e-4*T^2-1.474e-7*T^3);
+    eta:=(22.714-0.120*T+2.281e-4*T^2-1.474e-7*T^3)/1000;
   end eta_T;
 
   function s_T "Specific entropy as a function of temperature"
